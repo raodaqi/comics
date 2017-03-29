@@ -74,13 +74,4 @@ app.use(function(err, req, res, next) {
   });
 });
 
-function getComicsData(){
-  console.log("123");
-}
-
-// exports.getComicsData = function(){
-//   // sendLowPriceEmail();
-//   console.log("123");
-// }
-
 module.exports = app;

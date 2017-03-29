@@ -1,5 +1,4 @@
 var AV = require('leanengine');
-var appJs = 
 
 /**
  * 一个简单的云代码方法
@@ -7,10 +6,3 @@ var appJs =
 AV.Cloud.define('hello', function(request, response) {
   response.success('Hello world!');
 });
-
-AV.Cloud.define("getComicsData", function(request, response) {
-  getComicsData();
-  console.log("获取内涵漫画");
-});
-
-module.exports = AV.Cloud;
