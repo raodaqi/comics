@@ -52,7 +52,7 @@ function getComicsData(){
   // console.log("123");
   AV.Cloud.httpRequest({
     method: 'GET',
-    url: 'http://project.miqclan.com.cn/m/cartoon/get_list.json?showCount=5000&currentPage=0',
+    url: 'http://project.miqclan.com.cn/m/cartoon/get_list.json?showCount=100&currentPage=0',
     success: function(httpResponse) {
       // console.log(httpResponse.text);
       var data = JSON.parse(httpResponse.text);
