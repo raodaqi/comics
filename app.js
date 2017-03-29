@@ -97,20 +97,68 @@ function addComicsData(){
   });
 }
 
+// function saveComics(i,data){
+//   console.log(i);
+//   if(!data[i].img){
+//     saveComics(i+1,data);
+//     return;
+//   }
+//   if(i >= data.length){
+//     return;
+//   }
+//   var Comics = AV.Object.extend('Comics');
+//   var comics = new AV.Query(Comics);
+//   //去除空格
+//   var title = data[i].title.replace(/(^\s+)|(\s+$)/g,"");
+//   title = title.replace(/\s/g,"");
+//   comics.equalTo('title',title);
+//   comics.find().then(function(results) {
+//       // console.log(results);
+//       //判断是否存在
+//       if(results.length){
+//         //存在
+//         console.log("存在");
+//         saveComics(i+1,data);
+//       }else{
+//         //不存在
+//         //创建应用
+//         var comics = new Comics;
+//         comics.set("title",title);
+//         comics.set("img",data[i].img);
+//         comics.set("link",data[i].link);
+//         comics.set("c_time",data[i].cCreateTime);
+//         comics.save().then(function (comics) {
+//           console.log("保存成功");
+//           saveComics(i+1,data);
+//         }, function (error) {
+//           console.log("保存失败")
+//         });                                              
+//       }
+//     }, function(err) {
+//       if (err.code === 101) {
+//       // res.send(err);
+//       console.log("已存在")
+//       } else {
+//         next(err);
+//       }
+//   }).catch(next);
+// }
 
 
 // AV.Cloud.httpRequest({
-//   method: 'GET',
-//   url: 'http://project.miqclan.com.cn/m/cartoon/get_list.json?showCount=5&currentPage=1',
-//   success: function(httpResponse) {
-//     console.log(httpResponse.text);
-//     var data = JSON.parse(httpResponse.text);
-//     console.log(typeof(data));
-//     console.log(data.data);
-//   },
-//   error: function(httpResponse) {
-//     console.log("请求超时");
-//   }
-// });
+//     method: 'GET',
+//     url: 'http://project.miqclan.com.cn/m/cartoon/get_list.json?showCount=10&currentPage=0',
+//     success: function(httpResponse) {
+//       // console.log(httpResponse.text);
+//       var data = JSON.parse(httpResponse.text);
+//       //获取漫画列表
+//       var dataList = data.data.contentlist;
+//       console.log(dataList.length);
+//       saveComics(0,dataList);
+//     },
+//     error: function(httpResponse) {
+//       console.log("请求超时");
+//     }
+//   });
 
 module.exports = app;
