@@ -74,13 +74,43 @@ app.use(function(err, req, res, next) {
   });
 });
 
-function getComicsData(){
-  console.log("123");
+function addComicsData(){
+  var Comics = AV.Object.extend('Comics');
+  var comics = new Comics();
+  comics.set("title",title);
+  comics.set("link",link);
+  comics.set("img",img);
+  comics.save().then(function (app) {
+    var result = {
+      code : 200,
+      data : app,
+      message : "success"
+    }
+    res.send(result);
+  }, function (error) {
+    var result = {
+      code : 500,
+      message : "保存出错",
+      data:''
+    }
+    res.send(result);
+  });
 }
 
-// exports.getComicsData = function(){
-//   // sendLowPriceEmail();
-//   console.log("123");
-// }
+
+
+// AV.Cloud.httpRequest({
+//   method: 'GET',
+//   url: 'http://project.miqclan.com.cn/m/cartoon/get_list.json?showCount=5&currentPage=1',
+//   success: function(httpResponse) {
+//     console.log(httpResponse.text);
+//     var data = JSON.parse(httpResponse.text);
+//     console.log(typeof(data));
+//     console.log(data.data);
+//   },
+//   error: function(httpResponse) {
+//     console.log("请求超时");
+//   }
+// });
 
 module.exports = app;

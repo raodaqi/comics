@@ -1,5 +1,8 @@
 var AV = require('leanengine');
-var appJs = 
+
+function getComicsData(){
+  console.log("123");
+}
 
 /**
  * 一个简单的云代码方法
