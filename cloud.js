@@ -79,6 +79,7 @@ AV.Cloud.define('hello', function(request, response) {
 AV.Cloud.define("getComicsData", function(request, response) { 
   	getComicsData();
   	console.log("获取内涵漫画");
+  	return response.success();
 });
 
 module.exports = AV.Cloud;
