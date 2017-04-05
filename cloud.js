@@ -67,6 +67,25 @@ function getComicsData(){
   });
 }
 
+// function getsexiData(){
+//   // console.log("123");
+//   AV.Cloud.httpRequest({
+//     method: 'GET',
+//     url: 'http://www.sexijuntuan.net/',
+//     success: function(httpResponse) {
+//       console.log(httpResponse.text);
+//       // var data = JSON.parse(httpResponse.text);
+//       // //获取漫画列表
+//       // var dataList = data.data.contentlist;
+//       // console.log(dataList.length);
+//       // saveComics(0,dataList);
+//     },
+//     error: function(httpResponse) {
+//       console.log("请求超时");
+//     }
+//   });
+// }
+
 
 
 /**
@@ -81,5 +100,11 @@ AV.Cloud.define("getComicsData", function(request, response) {
   	console.log("获取内涵漫画");
   	return response.success();
 });
+
+// AV.Cloud.define("getsexiData", function(request, response) { 
+//     getComicsData();
+//     console.log("获取色系军团漫画");
+//     return response.success();
+// });
 
 module.exports = AV.Cloud;
