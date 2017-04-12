@@ -1,11 +1,11 @@
 var router = require('express').Router();
 var AV = require('leanengine');
-var cheerio = require('cheerio');
+// var cheerio = require('cheerio');
 // var iconv = require('iconv-lite');
 var http =  require('http');
 var qs = require('querystring');
 // var cookieParser = require('cookie-parser');
-var request = require('request');
+// var request = require('request');
 var charset = require('superagent-charset');
 var superagent = require('superagent');
  charset(superagent);
@@ -52,12 +52,14 @@ function get(resp) {
       }
         console.log(res.text);
         //var $ = cheerio.load(res.text);
-    })
+    });
 }
   //去除前后空格
 function leaveBlank(str){
   str = str.replace(/\s+/g,"");
   return str;
 }
+
+
 
 module.exports = router;
